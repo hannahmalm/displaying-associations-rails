@@ -1,3 +1,13 @@
 <h1><%= @category.name %></h1>
 
-<!-- Add code here to list a category's posts. -->
+<h3><%= pluralize(@category.posts.count, 'Post')%> </h3>
+
+<ul>
+    <% @category.posts.each do |p| %>
+    <li><%= link_to p.title, post_path(p) %></li>
+    <% end %>
+<ul>
+
+<!--In this domain, the primary use of a category is a bucket for posts-->
+<!--The object returned by an association method (posts) is a collectionproxy-->
+<!--Wrote a loop similar to loops written in index action to list category posts-->

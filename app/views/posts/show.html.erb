@@ -1,5 +1,16 @@
-<h1><%= @post.title %></h1>
+
 
 <!-- Add code here to link to the post's category. -->
 
+
+<!-- Add code here to list a category's posts. -->
+<!--When viewing a single post, want to have a link to its category available-->
+
+<!--Print out the post title-->
+<!--@post.category is the Category model itself - use it anywhere we would use @category-->
+<!--Added in if @post.category conditional to ensure that the view doesnt try to call @post.category.name if the post is not associated with category -->
+<h1><%= @post.title %></h1>
+<h3>Category: <%= link_to @post.category.name, category_path(@post.category) if @post.category %> </h3>
 <p><%= @post.description %></p>
+
+
